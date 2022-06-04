@@ -9,6 +9,8 @@ import 'package:water_tracker/src/features/main/ui/main_screen/main_screen_model
 MainScreenWidgetModel defaultMainScreenWidgetModelFactory(
   BuildContext context,
 ) {
+  // It is an example of di.
+  // ignore: unused_local_variable
   final appComponent = context.read<IAppScope>();
   final model = MainScreenModel();
 
