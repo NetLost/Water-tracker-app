@@ -1,0 +1,7 @@
+{
+    "appTitle": "WaterApp",
+    "@appTitle": {
+      "description": "The title of the application"
+    },
+    "exampleString": "Hope we will finish it."
+}
