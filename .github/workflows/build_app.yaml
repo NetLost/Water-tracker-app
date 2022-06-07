@@ -1,0 +1,78 @@
+name: "Build application"
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.4.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze project
+        uses: invertase/github-action-dart-analyzer@v1
+        with:
+          fatal-warnings: true
+
+      - name: dart-code-metrics
+        uses: dart-code-checker/dart-code-metrics-action@v2.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          folders: "lib"
+          pull_request_comment: true
+
+      - name: Verify formatting
+        run: flutter format --set-exit-if-changed .
+
+  build-apk:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.4.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build apk
+        run: flutter build apk
+
+  build-ios:
+    runs-on: macos-11
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.4.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build ios
+        run: flutter build ios --no-codesign
