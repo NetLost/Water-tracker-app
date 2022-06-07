@@ -21,7 +21,7 @@ dev_dependencies:
   elementary_test: ^1.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.4.1
+  surf_lint_rules: ^1.4.1
   json_serializable: ^6.2.0
 
 environment:
