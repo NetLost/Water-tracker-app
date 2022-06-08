@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:water_tracker/src/assets/theme/app_theme.dart';
 import 'package:water_tracker/src/config/debug_oprtions.dart';
 import 'package:water_tracker/src/features/app/di/app_scope.dart';
 import 'package:water_tracker/src/features/app/di/base/app_scope_interface.dart';
@@ -59,6 +60,9 @@ class _AppState extends State<App> {
           Locale('RU', ''), // Russia, no country code
         ],
         onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+        theme: AppTheme.lightTheme,
+        darkTheme: ThemeData.dark(),
+        themeMode: ThemeMode.system,
       ),
     );
   }
