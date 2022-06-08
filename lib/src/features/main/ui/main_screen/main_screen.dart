@@ -15,7 +15,7 @@ class MainScreen extends ElementaryWidget<MainScreenWidgetModel> {
   Widget build(MainScreenWidgetModel wm) {
     return Scaffold(
       body: Center(
-        child: Text(wm.l10n.exampleString),
+        child: Text(wm.ctx.l10n.exampleString),
       ),
     );
   }

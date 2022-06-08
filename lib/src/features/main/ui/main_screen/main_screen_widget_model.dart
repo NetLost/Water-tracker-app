@@ -15,6 +15,7 @@ MainScreenWidgetModel defaultMainScreenWidgetModelFactory(
   final model = MainScreenModel();
 
   return MainScreenWidgetModel(
+    context,
     model: model,
   );
 }
@@ -22,9 +23,18 @@ MainScreenWidgetModel defaultMainScreenWidgetModelFactory(
 /// Default [WidgetModel] for MainScreen.
 class MainScreenWidgetModel extends WidgetModel<MainScreen, MainScreenModel>
     implements IMainScreenWidgetModel {
+  final BuildContext _ctx;
+
+  @override
+  BuildContext get ctx => _ctx;
+
   /// Create an instance [MainScreenWidgetModel].
-  MainScreenWidgetModel({required MainScreenModel model}) : super(model);
+  MainScreenWidgetModel(this._ctx, {required MainScreenModel model})
+      : super(model);
 }
 
 /// Interface of [MainScreenWidgetModel].
-abstract class IMainScreenWidgetModel extends IWidgetModel {}
+abstract class IMainScreenWidgetModel extends IWidgetModel {
+  /// Get build context.
+  BuildContext get ctx;
+}
