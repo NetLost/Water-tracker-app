@@ -22,12 +22,9 @@ MainScreenWidgetModel defaultMainScreenWidgetModelFactory(
 /// Default [WidgetModel] for MainScreen.
 class MainScreenWidgetModel extends WidgetModel<MainScreen, MainScreenModel>
     implements IMainScreenWidgetModel {
-
   /// Create an instance [MainScreenWidgetModel].
   MainScreenWidgetModel({required MainScreenModel model}) : super(model);
-
 }
 
 /// Interface of [MainScreenWidgetModel].
-abstract class IMainScreenWidgetModel extends IWidgetModel {
-}
+abstract class IMainScreenWidgetModel extends IWidgetModel {}
