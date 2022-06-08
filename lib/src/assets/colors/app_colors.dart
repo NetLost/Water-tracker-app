@@ -6,24 +6,34 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   /// primary color
   static const Color primary = _blue;
+
   /// on primary color
   static const Color onPrimary = _white;
+
   /// secondary color
   static const Color secondary = _violet;
+
   /// on secondary color
   static const Color onSecondary = _white;
+
   /// teriary color
   static const Color surface = _brown;
+
   /// secondary color
   static const Color onSurface = _white;
+
   /// error color
   static const Color error = _red;
+
   /// on error color
   static const Color onError = _white;
+
   /// background color
   static const Color background = _white;
+
   /// on backgroung color
   static const Color onBackground = _black;
+
   /// outline color
   static const Color outline = _grey;
 
